@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 const ITEMS = [
   "Es cantar con tus amigas.",
   "Es bailar sin mirar la hora.",
@@ -18,6 +20,16 @@ export function Sensory() {
           <p className="mt-[18px] text-[clamp(16px,1.9vw,19px)] text-ink-dim">
             Es todo eso que te hace feliz:
           </p>
+        </div>
+
+        <div className="relative rounded-md overflow-hidden border border-line aspect-[21/9] mb-[clamp(32px,5vw,52px)]">
+          <Image
+            src="/images/sensory-banner.jpg"
+            alt="DJ set de Masfarré, humo y luces en una pista de baile."
+            fill
+            sizes="(min-width: 1180px) 1180px, 100vw"
+            className="object-cover"
+          />
         </div>
 
         <div className="hairline-grid grid-cols-1 md:grid-cols-3">
