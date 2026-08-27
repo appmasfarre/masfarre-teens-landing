@@ -1,9 +1,21 @@
+import Image from "next/image";
 import { WhatsAppIcon } from "./WhatsAppIcon";
 import { EVENT } from "./event-data";
 
 export function Hero() {
   return (
     <section className="relative overflow-hidden pt-[clamp(72px,13vw,132px)] pb-[clamp(56px,9vw,96px)]">
+      <div className="absolute inset-0 z-0">
+        <Image
+          src="/images/hero.jpg"
+          alt="Grupo de amigas en una fiesta de Masfarré, luces de neón."
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-bg via-bg/65 to-bg/20" />
+      </div>
       <div className="blob w-[620px] h-[620px] -top-[220px] -left-[180px]" />
       <div className="relative z-[2] max-w-[1180px] mx-auto px-5 sm:px-8">
         <div className="eyebrow mb-[22px]">Primera edición · Cupos limitados</div>
@@ -26,7 +38,7 @@ export function Hero() {
           <span className="chip">{EVENT.priceLabel}</span>
         </div>
 
-        <div className="flex flex-wrap gap-[14px]">
+        <div id="hero-cta" className="flex flex-wrap gap-[14px]">
           <a href={EVENT.formHref} className="btn btn-primary">
             Inscribirme
           </a>
