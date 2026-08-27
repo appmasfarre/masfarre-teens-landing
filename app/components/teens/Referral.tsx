@@ -26,7 +26,7 @@ export function Referral() {
           <div className="relative rounded-md overflow-hidden border border-line aspect-[4/3] grayscale-[0.15]">
             <Image
               src="/images/referral.jpg"
-              alt="DJ set de Masfarré en una fiesta de 15, luces rosas."
+              alt="Grupo de amigas abrazadas en una fiesta de Masfarré."
               fill
               sizes="(min-width: 820px) 40vw, 90vw"
               className="object-cover"
