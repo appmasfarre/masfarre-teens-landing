@@ -13,8 +13,11 @@ export function Sensory() {
             Ya sabés que no es sólo tu fiesta de 15
           </div>
           <h2 className="font-heading font-medium text-[clamp(27px,3.6vw,42px)] leading-[1.12]">
-            Es todo lo que pasa antes.
+            Tu fiesta es mucho más que una noche.
           </h2>
+          <p className="mt-[18px] text-[clamp(16px,1.9vw,19px)] text-ink-dim">
+            Es todo eso que te hace feliz:
+          </p>
         </div>
 
         <div className="hairline-grid grid-cols-1 md:grid-cols-3">

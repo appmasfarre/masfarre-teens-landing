@@ -11,11 +11,11 @@ export function Referral() {
               Spoiler
             </span>
             <h2 className="font-heading font-medium text-[clamp(26px,3.6vw,38px)] leading-[1.18]">
-              Las dos van a querer venir a Masfarré Teens.
+              Vos y tus amigas van a querer venir a Masfarré Teens.
             </h2>
             <p className="mt-[18px] max-w-[46ch] text-[clamp(16px,1.9vw,19px)] text-ink-dim">
-              Seguro tenés una amiga que ya tiene toda su fiesta pensada. Invitala — esto
-              se vive mejor de a dos.
+              Seguro tenés una amiga que ya tiene toda su fiesta pensada. Invitala. Esto
+              se vive mejor con amigas.
             </p>
             <div className="flex flex-wrap gap-[14px] mt-[26px]">
               <a href={EVENT.formHref} className="btn btn-primary">

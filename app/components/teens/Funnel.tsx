@@ -1,8 +1,8 @@
 const STEPS = [
-  { label: "Imaginar", quote: "Quiero festejar mis 15.", opacity: "opacity-[.72]" },
-  { label: "Desear", quote: "Quiero una fiesta así.", opacity: "opacity-[.87]" },
+  { label: "Cuando lo imaginas", quote: "Quiero festejar mis 15.", opacity: "opacity-[.72]" },
+  { label: "Cuando ya lo deseas", quote: "Quiero una fiesta así.", opacity: "opacity-[.87]" },
   {
-    label: "Pertenecer",
+    label: "Cuando la magia sucede",
     quote: "Quiero que ya sea mi noche.",
     opacity: "opacity-100",
     accent: true,

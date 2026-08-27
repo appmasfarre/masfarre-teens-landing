@@ -11,8 +11,9 @@ export function Hook() {
           <b className="not-italic font-semibold text-ink">viste esta semana?</b>
         </div>
         <p className="mt-[26px] max-w-[52ch] text-[clamp(16px,1.9vw,19px)] text-ink-dim">
-          Tranqui. Nos pasa seguido con las próximas protagonistas — así que armamos un
-          evento para vivirlo antes de que llegue la fecha.
+          Tranqui. Nosotros también miramos las últimas tendencias de fiestas de 15 todo
+          el tiempo. Por eso existe Masfarré Teens: la experiencia. Un evento pensado
+          para que ya puedas saber cómo va a ser tu fiesta con el equipo Masfarré.
         </p>
       </div>
     </section>

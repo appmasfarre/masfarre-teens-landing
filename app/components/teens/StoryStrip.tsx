@@ -42,7 +42,7 @@ export function StoryStrip() {
             Así se está armando
           </div>
           <h2 className="font-heading font-medium text-[clamp(27px,3.6vw,42px)] leading-[1.12]">
-            Esto ya se viene contando en redes.
+            Nuestras redes sociales ya hablan de este evento:
           </h2>
         </div>
 

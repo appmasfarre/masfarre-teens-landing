@@ -14,8 +14,8 @@ export function Hero() {
         </h1>
 
         <p className="mt-6 max-w-[46ch] text-[clamp(16px,1.9vw,19px)] text-ink-dim">
-          Un evento exclusivo de Masfarré para adolescentes de 12, 13 y 14 años que ya
-          empiezan a imaginar su fiesta — junto a sus familias.
+          Un evento exclusivo de Masfarré para las próximas quinceañeras que ya saben
+          cómo quieren vivir la noche de su fiesta.
         </p>
 
         <div className="flex flex-wrap gap-[10px] mt-[30px] mb-9">
