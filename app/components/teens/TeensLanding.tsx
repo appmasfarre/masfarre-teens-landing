@@ -15,7 +15,7 @@ import { StickyCta } from "./StickyCta";
 // ver app/page.tsx para la nota sobre por qué.
 export function TeensLanding() {
   return (
-    <>
+    <div className="relative overflow-x-hidden">
       <div className="blob w-[520px] h-[520px] top-[1400px] -right-[220px]" />
       <Nav />
       <main>
@@ -30,6 +30,6 @@ export function TeensLanding() {
       </main>
       <Footer />
       <StickyCta />
-    </>
+    </div>
   );
 }
