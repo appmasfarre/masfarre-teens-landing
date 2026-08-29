@@ -35,6 +35,8 @@ export function InscripcionForm() {
       amigas_acompanantes: data.get("amigas_acompanantes")
         ? Number(data.get("amigas_acompanantes"))
         : null,
+      escuela: data.get("escuela") || null,
+      fecha_nacimiento: data.get("fecha_nacimiento") || null,
       como_se_entero: data.get("como_se_entero") || null,
       padres_asisten: data.get("padres_asisten") || null,
       opt_in_comunicaciones: data.get("opt_in_comunicaciones") === "on",
@@ -86,7 +88,7 @@ export function InscripcionForm() {
       </div>
 
       <div className="field">
-        <label htmlFor="nombre_adolescente">Nombre de la adolescente *</label>
+        <label htmlFor="nombre_adolescente">Tu nombre *</label>
         <input
           type="text"
           id="nombre_adolescente"
@@ -97,7 +99,7 @@ export function InscripcionForm() {
       </div>
 
       <div className="field">
-        <label htmlFor="edad_rango">Edad *</label>
+        <label htmlFor="edad_rango">Tu edad *</label>
         <select id="edad_rango" name="edad_rango" required defaultValue="">
           <option value="" disabled>
             Elegí una opción
@@ -110,11 +112,11 @@ export function InscripcionForm() {
 
       <div className="field-row">
         <div className="field">
-          <label htmlFor="nombre_tutor">Tu nombre (mamá / papá / tutor) *</label>
+          <label htmlFor="nombre_tutor">Nombre de mamá, papá o tutor *</label>
           <input type="text" id="nombre_tutor" name="nombre_tutor" required autoComplete="name" />
         </div>
         <div className="field">
-          <label htmlFor="whatsapp_tutor">Tu WhatsApp *</label>
+          <label htmlFor="whatsapp_tutor">Su WhatsApp *</label>
           <input
             type="tel"
             id="whatsapp_tutor"
@@ -127,13 +129,30 @@ export function InscripcionForm() {
       </div>
 
       <div className="field">
-        <label htmlFor="email">Tu email *</label>
+        <label htmlFor="email">Su email *</label>
         <input type="email" id="email" name="email" required autoComplete="email" />
       </div>
 
       <div className="field-row">
         <div className="field">
-          <label htmlFor="amigas_acompanantes">¿Cuántas amigas la acompañan? (opcional)</label>
+          <label htmlFor="fecha_nacimiento">Tu fecha de nacimiento *</label>
+          <input
+            type="date"
+            id="fecha_nacimiento"
+            name="fecha_nacimiento"
+            required
+            autoComplete="bday"
+          />
+        </div>
+        <div className="field">
+          <label htmlFor="escuela">¿A qué escuela vas? *</label>
+          <input type="text" id="escuela" name="escuela" required autoComplete="off" />
+        </div>
+      </div>
+
+      <div className="field-row">
+        <div className="field">
+          <label htmlFor="amigas_acompanantes">¿Cuántas amigas te acompañan? (opcional)</label>
           <input type="number" id="amigas_acompanantes" name="amigas_acompanantes" min={0} max={20} />
         </div>
         <div className="field">
@@ -149,7 +168,7 @@ export function InscripcionForm() {
       </div>
 
       <fieldset className="field">
-        <legend>¿Los papás / mamás / tutores también asisten? *</legend>
+        <legend>¿Tus papás, mamás o tutores también asisten? *</legend>
         <div className="radio-group">
           <label className="radio-option">
             <input type="radio" name="padres_asisten" value="si" required /> Sí, seguro
