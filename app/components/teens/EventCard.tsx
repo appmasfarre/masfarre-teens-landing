@@ -1,4 +1,5 @@
 import { WhatsAppIcon } from "./WhatsAppIcon";
+import { InscripcionForm } from "./InscripcionForm";
 import { EVENT } from "./event-data";
 
 function EventRow({
@@ -23,7 +24,7 @@ export function EventCard() {
     <section id="inscripcion" className="py-[clamp(56px,9vw,104px)]">
       <div className="max-w-[1180px] mx-auto px-5 sm:px-8">
         <div
-          className="rounded-md border border-line p-[clamp(32px,5vw,56px)] grid grid-cols-1 md:grid-cols-[1.2fr_1fr] gap-8 items-center"
+          className="rounded-md border border-line p-[clamp(32px,5vw,56px)] grid grid-cols-1 md:grid-cols-[1fr_1.1fr] gap-10 md:items-start"
           style={{
             background:
               "radial-gradient(circle at 12% 15%, var(--accent-soft), transparent 45%), var(--bg-raised-2)",
@@ -68,21 +69,16 @@ export function EventCard() {
                 Gratuito, con cupo limitado
               </EventRow>
             </div>
-            <span className="placeholder-note">
-              Vista previa — el formulario final se conecta cuando aprobemos el
-              contenido.
-            </span>
-          </div>
-
-          <div className="flex flex-col items-stretch gap-[14px]">
-            <a href={EVENT.formHref} className="btn btn-primary justify-center">
-              Inscribirme a Masfarré Teens
-            </a>
-            <a href={EVENT.whatsappHref} className="btn btn-ghost justify-center">
+            
+              href={EVENT.whatsappHref}
+              className="btn btn-ghost justify-center mt-[26px] w-fit"
+            >
               <WhatsAppIcon className="w-[17px] h-[17px] opacity-85" />
               Tengo una duda — WhatsApp
             </a>
           </div>
+
+          <InscripcionForm />
         </div>
       </div>
     </section>
