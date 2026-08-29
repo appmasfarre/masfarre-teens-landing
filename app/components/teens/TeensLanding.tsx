@@ -5,6 +5,7 @@ import { Funnel } from "./Funnel";
 import { StoryStrip } from "./StoryStrip";
 import { Sensory } from "./Sensory";
 import { Referral } from "./Referral";
+import { ParentsSection } from "./ParentsSection";
 import { EventCard } from "./EventCard";
 import { FinalCta } from "./FinalCta";
 import { Footer } from "./Footer";
@@ -25,6 +26,7 @@ export function TeensLanding() {
         <StoryStrip />
         <Sensory />
         <Referral />
+        <ParentsSection />
         <EventCard />
         <FinalCta />
       </main>
