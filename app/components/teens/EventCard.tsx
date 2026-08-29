@@ -70,7 +70,7 @@ export function EventCard() {
               </EventRow>
             </div>
             
-              href={EVENT.whatsappHref}
+               <a href={EVENT.whatsappHref}
               className="btn btn-ghost justify-center mt-[26px] w-fit"
             >
               <WhatsAppIcon className="w-[17px] h-[17px] opacity-85" />
