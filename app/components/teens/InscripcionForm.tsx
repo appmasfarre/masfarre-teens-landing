@@ -87,7 +87,7 @@ export function InscripcionForm() {
           lugar.
         </p>
         {whatsappDigits && (
-          
+          <a
             href={`https://wa.me/${whatsappDigits}?text=${avisoMsg}`}
             target="_blank"
             rel="noopener noreferrer"
