@@ -32,9 +32,12 @@ export function ParentsSection() {
             No es obligatorio. Pero los invitamos con todas las ganas — contanos
             en el formulario si nos acompañan.
           </p>
-          <div className="flex justify-center mt-7">
+          <div className="flex flex-wrap justify-center gap-[10px] mt-7">
             <a href={EVENT.formHref} className="btn btn-ghost">
               Ir al formulario
+            </a>
+            <a href="/teens/padres" className="btn btn-ghost">
+              Conocé más para familias
             </a>
           </div>
         </div>
