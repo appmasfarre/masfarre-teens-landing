@@ -8,6 +8,9 @@ type Status = "idle" | "submitting" | "success" | "error";
 export function InscripcionForm() {
   const [status, setStatus] = useState<Status>("idle");
   const [errorMsg, setErrorMsg] = useState("");
+  // Guardamos el WhatsApp del tutor antes de resetear el form, para armar el
+  // botón "avisale a mamá/papá" de la pantalla de éxito.
+  const [tutorWhatsapp, setTutorWhatsapp] = useState("");
 
   async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -54,6 +57,7 @@ export function InscripcionForm() {
 
       if (!res.ok) throw new Error("submit_failed");
 
+      setTutorWhatsapp(String(data.get("whatsapp_tutor") || ""));
       setStatus("success");
       form.reset();
     } catch {
@@ -65,6 +69,12 @@ export function InscripcionForm() {
   }
 
   if (status === "success") {
+    // wa.me necesita el número en formato internacional, sin +, espacios ni guiones.
+    const whatsappDigits = tutorWhatsapp.replace(/\D/g, "");
+    const avisoMsg = encodeURIComponent(
+      "Hola! Me acabo de anotar a Masfarré Teens — La Experiencia (23/10). En un rato te va a llegar un mensaje nuestro pidiendo tu autorización, ¿lo revisás? Si querés info antes: masfarre.com/teens/padres 💛"
+    );
+
     return (
       <div className="form-success" role="status">
         <span className="text-[26px]">🎉</span>
@@ -72,9 +82,20 @@ export function InscripcionForm() {
           ¡Listo, ya te registramos!
         </p>
         <p className="text-ink-dim text-[14.5px] mt-2 max-w-[38ch] mx-auto">
-          Te mandamos un mail de confirmación. En los próximos días te
-          contactamos por WhatsApp para coordinar los últimos detalles.
+          Ya le mandamos un mail a mamá, papá o tu tutor, y en los próximos
+          días también le vamos a escribir por WhatsApp para confirmar tu
+          lugar.
         </p>
+        {whatsappDigits && (
+          
+            href={`https://wa.me/${whatsappDigits}?text=${avisoMsg}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn btn-primary justify-center mt-5 w-fit mx-auto"
+          >
+            Avisarle a mamá/papá ahora
+          </a>
+        )}
       </div>
     );
   }
@@ -186,6 +207,11 @@ export function InscripcionForm() {
         <input type="checkbox" name="opt_in_comunicaciones" required />
         <span>Quiero recibir novedades del evento por mail y WhatsApp. *</span>
       </label>
+
+      <p className="text-[12px] text-ink-dim">
+        Antes de anotarte: le vamos a escribir a mamá, papá o tu tutor por
+        WhatsApp para confirmar tu lugar — contale así lo espera.
+      </p>
 
       {status === "error" && <p className="form-error">{errorMsg}</p>}
 
