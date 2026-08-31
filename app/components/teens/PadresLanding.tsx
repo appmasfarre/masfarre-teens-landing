@@ -22,7 +22,7 @@ export function PadresLanding() {
             className="h-5 w-auto"
             priority
           />
-          
+          <a
             href="/teens"
             className="text-[13px] font-bold px-[18px] py-[9px] rounded border border-line whitespace-nowrap"
           >
