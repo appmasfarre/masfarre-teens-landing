@@ -9,7 +9,7 @@ import { EVENT } from "./event-data";
 // nota del formulario de inscripción.
 export function PadresLanding() {
   return (
-    <div className="relative overflow-x-hidden">
+      <div className="relative">
       <div className="blob w-[520px] h-[520px] top-[900px] -right-[220px]" />
 
       <header className="sticky top-0 z-40 bg-black/[.94] border-b border-line">
