@@ -15,7 +15,7 @@ import { Footer } from "./Footer";
 // ver app/page.tsx para la nota sobre por qué.
 export function TeensLanding() {
   return (
-    <div className="relative overflow-x-hidden">
+        <div className="relative">
       <div className="blob w-[520px] h-[520px] top-[1400px] -right-[220px]" />
       <Nav />
       <main>
