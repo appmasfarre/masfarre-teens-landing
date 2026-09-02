@@ -9,7 +9,6 @@ import { ParentsSection } from "./ParentsSection";
 import { EventCard } from "./EventCard";
 import { FinalCta } from "./FinalCta";
 import { Footer } from "./Footer";
-import { StickyCta } from "./StickyCta";
 
 // Página completa de Masfarré Teens — La Experiencia.
 // Se usa tanto en /teens (URL permanente) como, por ahora, en la home (/) —
@@ -31,7 +30,6 @@ export function TeensLanding() {
         <FinalCta />
       </main>
       <Footer />
-      <StickyCta />
     </div>
   );
 }
