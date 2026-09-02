@@ -3,7 +3,7 @@ import { EVENT } from "./event-data";
 
 export function Nav() {
   return (
-    <nav className="sticky top-0 z-40 backdrop-blur-md bg-black/[.78] border-b border-line">
+      <nav className="sticky top-0 z-40 bg-black/[.94] border-b border-line">
       <div className="max-w-[1180px] mx-auto px-5 sm:px-8 py-4 flex items-center justify-between">
         <Image
           src="/images/logo-white.png"
