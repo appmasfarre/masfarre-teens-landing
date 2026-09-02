@@ -12,7 +12,7 @@ export function PadresLanding() {
     <div className="relative overflow-x-hidden">
       <div className="blob w-[520px] h-[520px] top-[900px] -right-[220px]" />
 
-      <header className="sticky top-0 z-40 backdrop-blur-md bg-black/[.78] border-b border-line">
+      <header className="sticky top-0 z-40 bg-black/[.94] border-b border-line">
         <div className="max-w-[1180px] mx-auto px-5 sm:px-8 py-4 flex items-center justify-between">
           <Image
             src="/images/logo-white.png"
