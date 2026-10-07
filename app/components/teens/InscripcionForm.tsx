@@ -2,6 +2,7 @@
 
 import { useState, type FormEvent } from "react";
 import { EVENT } from "./event-data";
+import { readUtm } from "../tracking/utm";
 
 type Status = "idle" | "submitting" | "success" | "error";
 
@@ -27,7 +28,7 @@ export function InscripcionForm() {
       return;
     }
 
-    const params = new URLSearchParams(window.location.search);
+    const utm = readUtm();
 
     const payload = {
       nombre_adolescente: data.get("nombre_adolescente"),
@@ -44,8 +45,8 @@ export function InscripcionForm() {
       padres_asisten: data.get("padres_asisten") || null,
       opt_in_comunicaciones: data.get("opt_in_comunicaciones") === "on",
       honeypot: data.get("empresa"),
-      utm_source: params.get("utm_source"),
-      utm_campaign: params.get("utm_campaign"),
+      utm_source: utm.utm_source,
+      utm_campaign: utm.utm_campaign,
     };
 
     try {
