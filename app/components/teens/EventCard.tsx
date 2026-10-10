@@ -46,7 +46,7 @@ export function EventCard() {
                   </svg>
                 }
               >
-                <b className="font-bold text-ink">{EVENT.dateLabel}</b>
+                <b className="font-bold text-ink">{EVENT.dateLabel} · {EVENT.timeLabel}</b>
               </EventRow>
               <EventRow
                 icon={

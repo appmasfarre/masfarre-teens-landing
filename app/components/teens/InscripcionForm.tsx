@@ -6,7 +6,47 @@ import { readUtm } from "../tracking/utm";
 
 type Status = "idle" | "submitting" | "success" | "error";
 
-export function InscripcionForm() {
+// El mismo formulario se muestra a la chica (landing /teens) y a mamá, papá o
+// tutor (landing /teens/padres). Solo cambia cómo se le habla a quien lo llena;
+// los campos que se envían son siempre los mismos.
+type Audience = "teen" | "padres";
+
+const COPY = {
+  teen: {
+    nombre: "Tu nombre *",
+    edad: "Tu edad *",
+    nombreTutor: "Nombre de mamá, papá o tutor *",
+    whatsapp: "Su WhatsApp *",
+    email: "Su email *",
+    fechaNacimiento: "Tu fecha de nacimiento (opcional)",
+    escuela: "¿A qué escuela vas? (opcional)",
+    amigas: "¿Cuántas amigas te acompañan? (opcional)",
+    comoSeEntero: "¿Cómo te enteraste? (opcional)",
+    padresAsisten: "¿Tus papás, mamás o tutores también asisten? *",
+    aviso:
+      "Antes de anotarte: le vamos a escribir a mamá, papá o tu tutor por WhatsApp para confirmar tu lugar — contale así lo espera.",
+    submit: "Inscribirme a Masfarré Teens",
+    nota: "El WhatsApp es solo para coordinar tu lugar — nunca lo usamos para mandar mensajes masivos.",
+  },
+  padres: {
+    nombre: "Nombre de tu hija *",
+    edad: "Su edad *",
+    nombreTutor: "Tu nombre *",
+    whatsapp: "Tu WhatsApp *",
+    email: "Tu email *",
+    fechaNacimiento: "Su fecha de nacimiento (opcional)",
+    escuela: "¿A qué escuela va? (opcional)",
+    amigas: "¿Cuántas amigas la acompañan? (opcional)",
+    comoSeEntero: "¿Cómo se enteraron? (opcional)",
+    padresAsisten: "¿Ustedes también vienen esa noche? *",
+    aviso: "Después de inscribirla te escribimos por WhatsApp para confirmar su lugar.",
+    submit: "Inscribir a mi hija",
+    nota: "El WhatsApp es solo para coordinar su lugar — nunca lo usamos para mandar mensajes masivos.",
+  },
+} as const;
+
+export function InscripcionForm({ audience = "teen" }: { audience?: Audience }) {
+  const copy = COPY[audience];
   const [status, setStatus] = useState<Status>("idle");
   const [errorMsg, setErrorMsg] = useState("");
   // Guardamos el WhatsApp del tutor antes de resetear el form, para armar el
@@ -69,6 +109,21 @@ export function InscripcionForm() {
     }
   }
 
+  if (status === "success" && audience === "padres") {
+    return (
+      <div className="form-success" role="status">
+        <span className="text-[26px]">🎉</span>
+        <p className="font-heading font-medium text-[22px] mt-3">
+          ¡Listo, ya la inscribimos!
+        </p>
+        <p className="text-ink-dim text-[14.5px] mt-2 max-w-[38ch] mx-auto">
+          Te mandamos un mail con los datos y en los próximos días te
+          escribimos por WhatsApp para confirmar su lugar.
+        </p>
+      </div>
+    );
+  }
+
   if (status === "success") {
     // wa.me necesita el número en formato internacional, sin +, espacios ni guiones.
     const whatsappDigits = tutorWhatsapp.replace(/\D/g, "");
@@ -110,7 +165,7 @@ export function InscripcionForm() {
       </div>
 
       <div className="field">
-        <label htmlFor="nombre_adolescente">Tu nombre *</label>
+        <label htmlFor="nombre_adolescente">{copy.nombre}</label>
         <input
           type="text"
           id="nombre_adolescente"
@@ -121,7 +176,7 @@ export function InscripcionForm() {
       </div>
 
       <div className="field">
-        <label htmlFor="edad_rango">Tu edad *</label>
+        <label htmlFor="edad_rango">{copy.edad}</label>
         <select id="edad_rango" name="edad_rango" required defaultValue="">
           <option value="" disabled>
             Elegí una opción
@@ -134,11 +189,11 @@ export function InscripcionForm() {
 
       <div className="field-row">
         <div className="field">
-          <label htmlFor="nombre_tutor">Nombre de mamá, papá o tutor *</label>
+          <label htmlFor="nombre_tutor">{copy.nombreTutor}</label>
           <input type="text" id="nombre_tutor" name="nombre_tutor" required autoComplete="name" />
         </div>
         <div className="field">
-          <label htmlFor="whatsapp_tutor">Su WhatsApp *</label>
+          <label htmlFor="whatsapp_tutor">{copy.whatsapp}</label>
           <input
             type="tel"
             id="whatsapp_tutor"
@@ -151,34 +206,33 @@ export function InscripcionForm() {
       </div>
 
       <div className="field">
-        <label htmlFor="email">Su email *</label>
+        <label htmlFor="email">{copy.email}</label>
         <input type="email" id="email" name="email" required autoComplete="email" />
       </div>
 
       <div className="field-row">
         <div className="field">
-          <label htmlFor="fecha_nacimiento">Tu fecha de nacimiento *</label>
+          <label htmlFor="fecha_nacimiento">{copy.fechaNacimiento}</label>
           <input
             type="date"
             id="fecha_nacimiento"
             name="fecha_nacimiento"
-            required
             autoComplete="bday"
           />
         </div>
         <div className="field">
-          <label htmlFor="escuela">¿A qué escuela vas? *</label>
-          <input type="text" id="escuela" name="escuela" required autoComplete="off" />
+          <label htmlFor="escuela">{copy.escuela}</label>
+          <input type="text" id="escuela" name="escuela" autoComplete="off" />
         </div>
       </div>
 
       <div className="field-row">
         <div className="field">
-          <label htmlFor="amigas_acompanantes">¿Cuántas amigas te acompañan? (opcional)</label>
+          <label htmlFor="amigas_acompanantes">{copy.amigas}</label>
           <input type="number" id="amigas_acompanantes" name="amigas_acompanantes" min={0} max={20} />
         </div>
         <div className="field">
-          <label htmlFor="como_se_entero">¿Cómo te enteraste? (opcional)</label>
+          <label htmlFor="como_se_entero">{copy.comoSeEntero}</label>
           <select id="como_se_entero" name="como_se_entero" defaultValue="">
             <option value="">Elegí una opción</option>
             <option value="instagram">Instagram</option>
@@ -190,7 +244,7 @@ export function InscripcionForm() {
       </div>
 
       <fieldset className="field">
-        <legend>¿Tus papás, mamás o tutores también asisten? *</legend>
+        <legend>{copy.padresAsisten}</legend>
         <div className="radio-group">
           <label className="radio-option">
             <input type="radio" name="padres_asisten" value="si" required /> Sí, seguro
@@ -210,8 +264,7 @@ export function InscripcionForm() {
       </label>
 
       <p className="text-[12px] text-ink-dim">
-        Antes de anotarte: le vamos a escribir a mamá, papá o tu tutor por
-        WhatsApp para confirmar tu lugar — contale así lo espera.
+        {copy.aviso}
       </p>
 
       {status === "error" && <p className="form-error">{errorMsg}</p>}
@@ -221,11 +274,11 @@ export function InscripcionForm() {
         className="btn btn-primary justify-center w-full"
         disabled={status === "submitting"}
       >
-        {status === "submitting" ? "Enviando..." : "Inscribirme a Masfarré Teens"}
+        {status === "submitting" ? "Enviando..." : copy.submit}
       </button>
 
       <p className="text-[11px] text-ink-faint mt-1">
-        El WhatsApp es solo para coordinar tu lugar — nunca lo usamos para mandar mensajes masivos.
+        {copy.nota}
       </p>
     </form>
   );
