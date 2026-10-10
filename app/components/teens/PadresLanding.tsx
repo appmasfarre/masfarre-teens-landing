@@ -2,11 +2,13 @@ import Image from "next/image";
 import { WhatsAppIcon } from "./WhatsAppIcon";
 import { Footer } from "./Footer";
 import { EVENT } from "./event-data";
+import { InscripcionForm } from "./InscripcionForm";
 
 // Copy aprobado — no parafrasear sin volver a pasar por aprobación.
 // Página exclusiva para las familias. No está en el menú principal: se llega
-// acá por el mensaje de WhatsApp de confirmación (lo manda Gise) y por la
-// nota del formulario de inscripción.
+// acá por los anuncios de Meta dirigidos a padres, por el mensaje de WhatsApp
+// de confirmación (lo manda Gise) y por la nota del formulario de inscripción.
+// Tiene su propio formulario, redactado para que lo llene el adulto.
 export function PadresLanding() {
   return (
       <div className="relative">
@@ -46,6 +48,23 @@ export function PadresLanding() {
               nuestra forma de mostrarle a ella — y de mostrarles a ustedes —
               lo que hacemos, sin que todavía haya nada que decidir.
             </p>
+            <div className="flex flex-wrap justify-center gap-[10px] mt-[30px]">
+              <span className="chip">
+                📅 <b className="text-ink font-bold">{EVENT.dateLabel} · {EVENT.timeLabel}</b>
+              </span>
+              <span className="chip">📍 {EVENT.venue}</span>
+              <span className="chip">{EVENT.audienceLabel}</span>
+              <span className="chip">{EVENT.priceLabel}</span>
+            </div>
+            <div className="flex flex-wrap justify-center gap-[14px] mt-8">
+              <a href="#inscripcion" className="btn btn-primary">
+                Inscribir a mi hija
+              </a>
+              <a href={EVENT.whatsappHref} className="btn btn-ghost">
+                <WhatsAppIcon className="w-[17px] h-[17px] opacity-85" />
+                ¿Dudas? Consultanos
+              </a>
+            </div>
           </div>
         </section>
 
@@ -91,6 +110,18 @@ export function PadresLanding() {
           </div>
         </section>
 
+        <section id="inscripcion" className="py-[clamp(40px,6vw,64px)] scroll-mt-20">
+          <div className="max-w-[640px] mx-auto px-5 sm:px-8">
+            <div className="text-xs font-bold uppercase tracking-[0.14em] text-ink-faint mb-[14px]">
+              Inscripción
+            </div>
+            <h2 className="font-heading font-medium text-[clamp(24px,3.4vw,34px)] mb-[26px]">
+              Inscribí a tu hija en un minuto.
+            </h2>
+            <InscripcionForm audience="padres" />
+          </div>
+        </section>
+
         <section className="py-[clamp(56px,9vw,96px)]">
           <div className="max-w-[720px] mx-auto px-5 sm:px-8">
             <div
@@ -113,7 +144,7 @@ export function PadresLanding() {
                   <WhatsAppIcon className="w-[17px] h-[17px] opacity-85" />
                   Escribinos por WhatsApp
                 </a>
-                <a href="/teens#inscripcion" className="btn btn-ghost">
+                <a href="#inscripcion" className="btn btn-ghost">
                   Inscribir a mi hija
                 </a>
               </div>

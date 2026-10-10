@@ -3,7 +3,7 @@ import Image from "next/image";
 const STORIES = [
   {
     src: "/images/story-1.jpg",
-    tag: "Próximamente",
+    tag: "Masfarré Teens",
     alt: "Historia de Instagram: Porque la ilusión empieza mucho antes de la fecha. Masfarré Teens: la experiencia.",
   },
   {

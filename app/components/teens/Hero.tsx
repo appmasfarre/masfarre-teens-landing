@@ -32,9 +32,10 @@ export function Hero() {
 
         <div className="flex flex-wrap gap-[10px] mt-[30px] mb-9">
           <span className="chip">
-            📅 <b className="text-ink font-bold">{EVENT.dateLabel}</b>
+            📅 <b className="text-ink font-bold">{EVENT.dateLabel} · {EVENT.timeLabel}</b>
           </span>
           <span className="chip">📍 {EVENT.venue}</span>
+          <span className="chip">{EVENT.audienceLabel}</span>
           <span className="chip">{EVENT.priceLabel}</span>
         </div>
 

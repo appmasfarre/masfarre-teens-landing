@@ -4,6 +4,8 @@ export const EVENT = {
   name: "Masfarré Teens — La Experiencia",
   edition: "Primera edición",
   dateLabel: "Viernes 23 de octubre",
+  timeLabel: "21 h",
+  audienceLabel: "Para chicas de 12 a 14 años",
   venue: "Rosaura Eventos",
   priceLabel: "Gratuito · cupo limitado",
   whatsappHref: "https://wa.me/5493482610982", // WhatsApp real de consultas (nunca vía de inscripción)
